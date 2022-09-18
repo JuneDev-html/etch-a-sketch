@@ -1,7 +1,7 @@
 // ----- ----- ----- BUILD GRID ----- ----- -----
 
 // grid size variable
-let gridSize = 16;
+let gridSize = 50;
 
 // create variable for grid container
 const grid = document.querySelector('.grid');
@@ -23,8 +23,32 @@ for (let i = 0; i < gridSize; i++) {
 // ----- ----- ----- ----- ----- ----- ----- ----- 
 const blocks = document.querySelectorAll('.block');
 
+// listen to draw 
+
+// add to each block
 blocks.forEach((block) => {
-    block.addEventListener('mouseHold', () => {
-        block.style.cssText = 'background: black';
+    // add listener to each block waiting for a mouse click
+    block.addEventListener('mouseover', (event) => {
+        if (event.which == 1) {
+            draw(event.target);
+        };
     });
-});
+}); 
+
+
+
+// stop drawing function
+function stopDrawing() {
+    blocks.forEach((block) => {
+        block.addEventListener('mouseup', () => {
+            draw(block);
+        });
+    });
+};
+
+// draw function 
+function draw(block) {
+    block.style.cssText = 'background: black';
+};
+
+
