@@ -31,6 +31,7 @@ blocks.forEach((block) => {
     block.addEventListener('mouseover', (event) => {
         if (event.which == 1) {
             draw(event.target);
+            console.log(event.target);
         };
     });
 }); 

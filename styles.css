@@ -12,20 +12,20 @@ header {
 
 /* ----- GRID CONTAINER ----- */
 .grid {
-    display: inline-flex;  
+    display: flex; 
     border: solid black 5px;
-    justify-content: center;
-    align-items: center;
+    height: 600px;
+    width: 600px;
 }
 
 .column {
-    align-items: center;
-    display: inline-block;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .block {
-    width: 10px;
-    height: 10px;
+    flex: 1;
     border-top: 1px solid grey;
     border-left: 1px solid grey;
 }
