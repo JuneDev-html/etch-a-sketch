@@ -14,7 +14,13 @@ function buildGrid(gridSize) {
         for (let j = 0; j < gridSize; j++) {
             let block = document.createElement('div');
             block.classList.add('block');
-
+            
+            block.addEventListener('mouseover', (event) => {
+                if (event.which == 1) {
+                    draw(event.target);
+                    console.log(target);
+                };
+            });
             column.append(block);
         };
         grid.append(column); 
@@ -33,12 +39,7 @@ const blocks = document.querySelectorAll('.block');
 // add to each block
 blocks.forEach((block) => {
     // add listener to each block waiting for a mouse click
-    block.addEventListener('mouseover', (event) => {
-        if (event.which == 1) {
-            draw(event.target);
-            console.log(target);
-        };
-    });
+    
 }); 
 
 
