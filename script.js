@@ -14,11 +14,12 @@ function buildGrid(gridSize) {
         for (let j = 0; j < gridSize; j++) {
             let block = document.createElement('div');
             block.classList.add('block');
+            block.style.backgroundColor = '#e1e1e1';
             
+            // add drawing even listener to each block
             block.addEventListener('mouseover', (event) => {
                 if (event.which == 1) {
                     draw(event.target);
-                    console.log(target);
                 };
             });
             column.append(block);
@@ -32,17 +33,6 @@ function buildGrid(gridSize) {
 
 
 // ----- ----- ----- ----- ----- ----- ----- ----- 
-const blocks = document.querySelectorAll('.block');
-
-// listen to draw 
-
-// add to each block
-blocks.forEach((block) => {
-    // add listener to each block waiting for a mouse click
-    
-}); 
-
-
 
 // draw function 
 function draw(block) {
@@ -72,3 +62,11 @@ function getGridSize() {
 }
 
 buildGrid(slider.value);
+
+// erase function
+let eraser = document.querySelector('#eraser');
+eraser.addEventListener("mouseup", (event) => {
+    if (event.which == 1) {
+        buildGrid(slider.value);
+    };
+});
