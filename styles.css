@@ -1,7 +1,4 @@
-* {
-    font-family: 'Roboto', sans-serif;
-    letter-spacing: 3px;
-}
+
 
 /* ----- MAIN UI ----- */
 .main {
@@ -25,6 +22,9 @@
     display: flex;
     justify-content: center;
     color: #f1f863;
+    font-family: 'Rock Salt', cursive;
+    font-weight: 900;
+
 }
 
 /* ----- GRID CONTAINER ----- */
@@ -35,6 +35,7 @@
     border-bottom: solid grey 2px;
     height: 600px;
     width: 600px;
+    
 }
 
 .column {
@@ -60,16 +61,30 @@
 }
 
 .sliderCont {
-    
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     padding: 32px;
     color: #f7ff58;
 }
 
-#eraser {
+.modes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #f1f863;
+
+
+}
+
+#restart {
     display: flex;
     flex: 0;
     justify-content: end;
@@ -82,5 +97,14 @@
     padding: 5px 16px;
     font-size: 16px;
     margin-right: 2em;
+    cursor: pointer;
 }
+
+#restart:hover {
+    background-color: white;
+}
+#restart:active {
+    background-color: #d8d8d8;
+    /* box-shadow: 0 5px #666; */
+    transform: translateY(4px);
 

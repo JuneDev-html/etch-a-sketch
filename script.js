@@ -63,10 +63,11 @@ function getGridSize() {
 
 buildGrid(slider.value);
 
-// erase function
-let eraser = document.querySelector('#eraser');
+// erase button 
+let eraser = document.querySelector('#restart');
 eraser.addEventListener("mouseup", (event) => {
     if (event.which == 1) {
         buildGrid(slider.value);
     };
 });
+
