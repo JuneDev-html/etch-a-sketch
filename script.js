@@ -28,17 +28,19 @@ function buildGrid(gridSize) {
     }; 
 }
 
-
-
-
-
 // ----- ----- ----- ----- ----- ----- ----- ----- 
 
+// ------- FUNCTIONS -------
 // draw function 
 function draw(block) {
-    block.style.cssText = 'background: black';
+    block.style.cssText = `background: ${currColor}`;
 };
 
+// get grid size function
+function getGridSize() {
+    let slider = document.querySelector('#sizeSlider');
+    return slider.value;
+}
 
 // ----- ----- CONTROLS DASHBOARD ----- -----
 
@@ -47,7 +49,7 @@ let sizeDisplay = document.querySelector('#sizeDisplay');
 let slider = document.querySelector('#sizeSlider');
 sizeDisplay.textContent = `${slider.value}x${slider.value}`;
 
-// change size display everytime 
+// update range slider display with upon change
 slider.addEventListener('mouseup', (event) => {
     if (event.which == 1) {
         sizeDisplay.textContent = `${slider.value}x${slider.value}`;
@@ -55,19 +57,49 @@ slider.addEventListener('mouseup', (event) => {
     }
 })
 
-// get grid size function
-function getGridSize() {
-    let slider = document.querySelector('#sizeSlider');
-    return slider.value;
-}
 
-buildGrid(slider.value);
-
-// erase button 
-let eraser = document.querySelector('#restart');
-eraser.addEventListener("mouseup", (event) => {
+// Restart button 
+let restart = document.querySelector('#restart');
+restart.addEventListener("mouseup", (event) => {
     if (event.which == 1) {
         buildGrid(slider.value);
     };
 });
 
+
+// --- add listeners to mode buttons to add to draw function
+let currColor = 'black'
+const classic = document.querySelector('#classic');
+const rainbow = document.querySelector('#rainbow');
+const eraser = document.querySelector('#eraser');
+
+// Classic Mode button
+classic.addEventListener('mouseup', (event) => {
+    if (event.which == 1) {
+        currColor = 'black'
+    }
+});
+
+// Rainbow Mode button
+rainbow.addEventListener('mouseup', (event) => {
+    if (event.which == 1) {
+        currColor = `rgb(${(Math.round(Math.random()*256))},${(Math.round(Math.random()*256))},${(Math.round(Math.random()*256))});`;
+        console.log(`rgb(${(Math.round(Math.random()*256))},${(Math.round(Math.random()*256))},${(Math.round(Math.random()*256))});`);
+
+        
+    };
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+buildGrid(slider.value);
