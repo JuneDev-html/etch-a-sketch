@@ -18,8 +18,21 @@ function buildGrid(gridSize) {
             
             // add drawing even listener to each block
             block.addEventListener('mouseover', (event) => {
+                // if mouse is currently clicked, activate following colors
                 if (event.which == 1) {
-                    draw(event.target);
+                    if (currColor == 'rainbow') {
+                        event.target.style.cssText = `background-color: rgb(${(Math.round(Math.random()*256))},${(Math.round(Math.random()*256))},${(Math.round(Math.random()*256))});`
+                    }
+                    else if (currColor == 'classic') {
+                       event.target.style.cssText =`background: black;`; 
+                    }
+                    else if (currColor == 'eraser') {
+                        event.target.style.cssText = 'background: #e1e1e1'
+                    }
+                    else {
+                        event.target.style.cssText =`background: black;`; 
+                    }
+                    
                 };
             });
             column.append(block);
@@ -27,6 +40,7 @@ function buildGrid(gridSize) {
         grid.append(column); 
     }; 
 }
+
 
 // ----- ----- ----- ----- ----- ----- ----- ----- 
 
@@ -73,28 +87,26 @@ const classic = document.querySelector('#classic');
 const rainbow = document.querySelector('#rainbow');
 const eraser = document.querySelector('#eraser');
 
-// Classic Mode button
+// // Classic Mode button
 classic.addEventListener('mouseup', (event) => {
     if (event.which == 1) {
-        currColor = 'black'
+        currColor = 'classic'
     }
 });
 
 // Rainbow Mode button
 rainbow.addEventListener('mouseup', (event) => {
     if (event.which == 1) {
-        currColor = `rgb(${(Math.round(Math.random()*256))},${(Math.round(Math.random()*256))},${(Math.round(Math.random()*256))});`;
-        console.log(`rgb(${(Math.round(Math.random()*256))},${(Math.round(Math.random()*256))},${(Math.round(Math.random()*256))});`);
+        currColor = 'rainbow'
 
-        
-    };
-})
-
-
-
-
-
-
+    }
+});
+// Eraser Mode button
+eraser.addEventListener('mouseup', (event) => {
+    if (event.which == 1) {
+        currColor = 'eraser'
+    }
+});
 
 
 
